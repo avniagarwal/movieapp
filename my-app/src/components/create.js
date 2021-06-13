@@ -48,11 +48,11 @@ export default class Create extends Component {
         e.preventDefault()
     
         const movieObject =  {
-          MovieName: '',
-          Language: '',
-          ReleaseDate: '',
-          Budget: '',
-          Collection: ''
+          MovieName: this.state.MovieName,
+          Language: this.state.Language,
+          ReleaseDate: this.state.ReleaseDate,
+          Budget: this.state.Budget,
+          Collection: this.state.Collection
       }
     
       axios.post('http://localhost:3000/movies/create', movieObject)
@@ -70,30 +70,30 @@ export default class Create extends Component {
 
     render() {
         return (<div className="form-wrapper">
-          <Form>
+          <Form onSubmit={this.onSubmit}>
             <Form.Group controlId="Name">
               <Form.Label>Movie Name</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.MovieName} onChange={this.onChangeMovieName}/>
             </Form.Group>
     
             <Form.Group controlId="Name">
               <Form.Label>Language</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.Language} onChange={this.onChangeLanguage}/>
             </Form.Group>
     
             <Form.Group controlId="Date">
               <Form.Label>Release Date</Form.Label>
-              <Form.Control type="date"/>
+              <Form.Control type="date" value={this.state.ReleaseDate} onChange={this.onChangeReleaseDate}/>
             </Form.Group>
 
             <Form.Group controlId="Name">
               <Form.Label>Budget</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.Budget} onChange={this.onChangeBudget}/>
             </Form.Group>
 
             <Form.Group controlId="Name">
               <Form.Label>Collection</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.Collection} onChange={this.onChangeCollection}/>
             </Form.Group>
 
 
