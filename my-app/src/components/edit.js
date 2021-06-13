@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 export default class Edit extends Component {
+
   constructor(props) {
     super(props)
 
@@ -14,7 +15,6 @@ export default class Edit extends Component {
     this.onChangeCollection = this.onChangeCollection.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    // State
     this.state = {
       MovieName: '',
       Language: '',
@@ -88,27 +88,27 @@ export default class Edit extends Component {
       <Form onSubmit={this.onSubmit}>
             <Form.Group controlId="Name">
               <Form.Label>Movie Name</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.MovieName} onChange={this.onChangeMovieName}/>
             </Form.Group>
     
             <Form.Group controlId="Name">
               <Form.Label>Language</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.Language} onChange={this.onChangeLanguage}/>
             </Form.Group>
     
             <Form.Group controlId="Date">
               <Form.Label>Release Date</Form.Label>
-              <Form.Control type="date"/>
+              <Form.Control type="date" value={this.state.ReleaseDate} onChange={this.onChangeReleaseDate}/>
             </Form.Group>
 
             <Form.Group controlId="Name">
               <Form.Label>Budget</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.Budget} onChange={this.onChangeBudget} />
             </Form.Group>
 
             <Form.Group controlId="Name">
               <Form.Label>Collection</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" value={this.state.Collection} onChange={this.onChangeCollection} />
             </Form.Group>
         <Button variant="danger" size="lg" block="block" type="submit">
           Update Movie
